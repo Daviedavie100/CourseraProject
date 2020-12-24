@@ -1,13 +1,13 @@
 #downloaded the data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-#unzip into the working directory
 #set the working directory
 
-setwd("C:/Users/Davie/Desktop/CourseraProject/CourseraProject")
+setwd("C:/~./CourseraProject") #unzip into the downloaded file into the working directory
 
+#packages
 library(data.table)
 library(dplyr)
 
-datapath<-file.path("C:/Users/Davie/Desktop/CourseraProject/CourseraProject", "UCI HAR Dataset")
+datapath<-file.path("C:/~./CourseraProject", "UCI HAR Dataset")
 files<-list.files(datapath, recursive=TRUE)
 
 #training data
@@ -77,3 +77,6 @@ tidy_data<-tidy_data[order(tidy_data$Subject,tidy_data$Activity),]
 write.table(tidy_data, file = "Tidy.txt", row.names = FALSE)
 
 View(tidy_data) #view full datasset
+
+#REFERENCE
+#<http://ajay2589.github.io/GettingAndCleaningData/analysis.html>
